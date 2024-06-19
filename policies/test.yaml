@@ -1,0 +1,21 @@
+policies:
+  - name: cloudwatch-set-log-group-retention
+    description: Set the default log group retention period for cloudwatch logs if not tagged correctly
+    resource: aws.log-group
+    mode:
+      role: arn:aws:iam::{account_id}:role/myrole
+      schedule: "rate(1 day)"
+      type: periodic
+      tags:
+        product: test
+    filters:
+      - and:
+          - type: value
+            key: retentionInDays
+            value: null
+          - type: value
+            key: "tag:provisioner"
+            value: absent
+    actions:
+      - type: retention
+        days: 365

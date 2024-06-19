@@ -1,6 +1,6 @@
 repos:
 - repo: https://github.com/jmreicha/pre-commit-c7n.git
-  rev: main
+  rev: 73e82c2de59aa13725280832c75d540971d501ab
   hooks:
   - id: c7n-validate
     args:
