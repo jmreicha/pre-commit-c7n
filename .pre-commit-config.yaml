@@ -1,0 +1,18 @@
+repos:
+- repo: https://github.com/jmreicha/pre-commit-c7n.git
+  rev: main
+  hooks:
+  - id: c7n-validate
+    args:
+    - --strict
+    - --verbose
+    - ./policies # last arg indicates the path/file to validate
+
+# - repo: https://github.com/jmreicha/pre-commit-c7n.git
+#   rev: v0.1.0
+#   hooks:
+#   - id: c7n-validate-docker
+#     args:
+#     - --strict
+#     - --verbose
+#     - ./policies # last arg indicates the path/file to validate
